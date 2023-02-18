@@ -200,6 +200,10 @@
                             <constraint firstItem="HLG-TK-TT6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bLl-xl-0d4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btn" destination="rHC-RX-B1m" id="AV0-f2-Ez4"/>
+                        <outletCollection property="btnArray" destination="17i-mB-C7b" collectionClass="NSMutableArray" id="N22-Vz-6XW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
