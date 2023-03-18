@@ -7,23 +7,44 @@
 //
 
 import UIKit
+import CLTypingLabel
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
+//    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: CLTypingLabel!
+    
+    
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       animateLabelTitle()
+        animateLabelTitleNew()
+//       animateLabelTitle()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         super.viewWillAppear(animated)
+        // скрыть панель навигации
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Показать панель навигации. Если этого не сделать, то у всех следующих экранов панель будет скрыта
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    
+    private func animateLabelTitleNew() {
+        titleLabel.text = "😎FlashChat"
+    }
 
     // анимация без фрейворка CLTypingLabel
     private func animateLabelTitle() {
         titleLabel.text = ""
         var charIndex = 0.0
-        let titleText = "😎FlashChat"
+        let titleText = "😎 FlashChat"
         for letter in titleText {
             print("-")
             print(0.1 * charIndex)

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        let db = Firestore.firestore()
+        
+        // Прокручивает текстовое ввода сообщения вместе с Клавиатурой
+        IQKeyboardManager.shared.enable = true
+        
+        // Отключить панель инструментов над клавиатурой (там справа отображается кнопка "done")
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        
+        // Скрыть клаву при тапе за клавиатурой
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         return true
     }
 
